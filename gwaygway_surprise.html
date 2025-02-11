@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentines Baby Gway Gway!!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("bggwygwy.avif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed; /* Keeps the background fixed when scrolling */
+            margin: 0;
+            overflow: hidden;
+            width: 100%; /* Ensures full-width */
+            transition: opacity 0.5s;
+        }
+
+        .header_text { 
+            font-family: 'Georgia', sans-serif;
+            font-size: 40px;
+            color: rgb(255, 0, 170);
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 0px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.5), 2px -2px 4px rgba(255, 255, 255, 0.5), -2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gif_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn {
+    background-color: rgb(101, 18, 106) !important;
+    color: rgb(222, 158, 169);
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: 3px solid rgb(222, 158, 169) !important; /* Add border width and style */
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcome" class="container">
+        <h1 class="header_text">Will You Be My Valentines?</h1>
+        <h1 class="header_text">Pleaseee?</h1>
+        <div class="gif_container">
+            <img src="https://media.giphy.com/media/oVeUzLxNPkAtxJ5IZ9/giphy.gif?cid=790b7611cc4px0q3f149daalz3pyc9d0mvfa0q72qfsibl6o&ep=v1_stickers_search&rid=giphy.gif&ct=s">
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="showNextSection()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+
+
+    <div id="surprise" class="container hidden">
+        <div class="gif_container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGd5eHN1ODYwYmF6NzVqZHIzZjVybzJ2cDIxb3VmejQ0aXgzMWI3NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/WVEw43BibLgfjj5caR/giphy.gif">
+        </div>
+        <h1 class="header_text">Yeheyy!!</h1>
+        <h1 class="header_text">I Love You So Muchh Baby Gway Gway!!</h1>
+    </div>
+
+    <script>
+        function showNextSection() {
+            document.getElementById('welcome').classList.add('hidden');
+            document.getElementById('surprise').classList.remove('hidden');
+        }
+
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var x = Math.random() * (window.innerWidth - button.offsetWidth - 20);
+            var y = Math.random() * (window.innerHeight - button.offsetHeight - 20);
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        let moveCount = 0;
+        const maxMoves = Math.floor(Math.random() * 6) + 10;
+
+        function moveYesButton() {
+            if (moveCount < maxMoves) {
+                var button = document.getElementById('yesButton');
+                var x = Math.random() * (window.innerWidth - button.offsetWidth - 20);
+                var y = Math.random() * (window.innerHeight - button.offsetHeight - 20);
+                button.style.position = 'absolute';
+                button.style.left = `${x}px`;
+                button.style.top = `${y}px`;
+                moveCount++;
+            }
+        }
+    </script>
+</body>
+</html>
